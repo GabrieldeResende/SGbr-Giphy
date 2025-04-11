@@ -51,6 +51,7 @@ const favoriteStore = useFavoriteStore()
 const isFavorite = (id) => favoriteStore.isFavorite(id)
 const toggleFavorite = (gif) => favoriteStore.toggleFavorite(gif)
 
+// função para carregamento das categorias desejadas
 const loadCategories = async () => {
   const data = await getGifCategories()
   categoryOptions.value = data.map((cat) => ({
@@ -59,6 +60,7 @@ const loadCategories = async () => {
   }))
 }
 
+//função para carregar os gifs de determinada categoria
 const loadCategoryGifs = async () => {
   if (!selectedCategory.value) return
   loading.value = true
@@ -66,6 +68,7 @@ const loadCategoryGifs = async () => {
   loading.value = false
 }
 
+//carregamento de conteudo da pagina
 onMounted(() => {
   loadCategories()
 })

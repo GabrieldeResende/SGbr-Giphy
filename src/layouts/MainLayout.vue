@@ -1,8 +1,10 @@
 <template>
   <q-layout class="bg-gray-400">
     <q-header>
-      <q-toolbar>
-        <q-toolbar-title> SGBr Teste </q-toolbar-title>
+      <q-toolbar class="bg-[#0159df]">
+        <q-toolbar-title>
+          <img class="w-20" src="../assets/logo-sgbr.png" alt="">
+        </q-toolbar-title>
 
         <div>Gabriel de Resende Santiago</div>
       </q-toolbar>

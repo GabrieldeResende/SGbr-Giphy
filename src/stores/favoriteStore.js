@@ -1,18 +1,21 @@
 import { defineStore } from 'pinia'
 
+//store de salvamento dos gifs favoritos
 export const useFavoriteStore = defineStore('favorite', {
   state: () => ({
     favorites: JSON.parse(localStorage.getItem('favoriteGifs') || '[]'),
   }),
 
+  // ações
   actions: {
+    //funçao para salvar como favorito
     addFavorite(gif) {
       if (!this.isFavorite(gif.id)) {
         this.favorites.push(gif)
         this.saveToStorage()
       }
     },
-
+    //funçao para remover o favorito
     removeFavorite(id) {
       this.favorites = this.favorites.filter((gif) => gif.id !== id)
       this.saveToStorage()

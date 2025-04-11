@@ -26,9 +26,12 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import { useFavoriteStore } from 'src/stores/favoriteStore'
 
 const favoriteStore = useFavoriteStore()
-const favorites = favoriteStore.favorites
+
+// computed = carregamento de estado da pagina por mudanças
+const favorites = computed(() => favoriteStore.favorites)
 const removeFavorite = favoriteStore.removeFavorite
 </script>

@@ -48,12 +48,13 @@ const favoriteStore = useFavoriteStore()
 const isFavorite = (id) => favoriteStore.isFavorite(id)
 const toggleFavorite = (gif) => favoriteStore.toggleFavorite(gif)
 
-// 🧠 Favoritos no localStorage
+// Favoritos no localStorage
 onMounted(() => {
   const saved = localStorage.getItem('favoriteGifs')
   if (saved) favorites.value = JSON.parse(saved)
 })
 
+//observar mudanças na pagina
 watch(
   favorites,
   (val) => {
@@ -61,6 +62,7 @@ watch(
   },
   { deep: true },
 )
+
 
 const handleSearch = async () => {
   if (!searchTerm.value.trim()) return
@@ -76,6 +78,7 @@ const loadTrending = async () => {
   loading.value = false
 }
 
+//carregamento de itens por paginação
 const loadMore = async () => {
   loading.value = true
   offset.value += limit

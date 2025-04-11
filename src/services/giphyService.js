@@ -1,8 +1,11 @@
 import axios from 'axios'
 
-const API_KEY = 'olCEb5qSGGezATVAgKZxZRX9DSqPGrbu'
-const BASE_URL = 'https://api.giphy.com/v1/gifs'
+//chave da API
+const API_KEY = process.env.API_KEY
+//url da API
+const BASE_URL = process.env.API_URL
 
+//função de busca de gifs
 export async function searchGifs(query, limit = 12, offset = 0) {
   try {
     const res = await axios.get(`${BASE_URL}/search`, {
@@ -20,6 +23,7 @@ export async function searchGifs(query, limit = 12, offset = 0) {
   }
 }
 
+//função de busca por gifs especificos
 export async function getTrendingGifs(limit = 12, offset = 0) {
   try {
     const res = await axios.get(`${BASE_URL}/trending`, {
@@ -36,6 +40,7 @@ export async function getTrendingGifs(limit = 12, offset = 0) {
   }
 }
 
+//função de coleta das categorias
 export async function getGifCategories() {
   try {
     const res = await axios.get(`${BASE_URL}/categories`, {
@@ -48,6 +53,7 @@ export async function getGifCategories() {
   }
 }
 
+// função de busca dos gifs por categorias
 export async function getGifsByCategory(term, limit = 12) {
   try {
     const res = await axios.get(`${BASE_URL}/search`, {
